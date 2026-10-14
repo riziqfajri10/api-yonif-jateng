@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Direktori Batalyon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <h1>Direktori Batalyon</h1>
+      <p class="endpoint" id="endpointLabel"></p>
+      <button class="btn ghost" id="reloadBtn" type="button">Muat ulang data</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="filters" aria-label="Filter">
+      <div class="field">
+        <label for="q">Cari</label>
+        <input id="q" type="search" placeholder="Nama, alamat, kota…">
+      </div>
+      <div class="field">
+        <label for="city">Kota / Kabupaten</label>
+        <select id="city"><option value="">Semua kota</option></select>
+      </div>
+      <div class="field">
+        <label for="category">Kategori</label>
+        <select id="category"><option value="">Semua kategori</option></select>
+      </div>
+      <div class="field">
+        <label for="rating">Rating minimal</label>
+        <select id="rating">
+          <option value="0">Semua</option>
+          <option value="3">3 ke atas</option>
+          <option value="4">4 ke atas</option>
+          <option value="4.5">4,5 ke atas</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sort">Urutkan</label>
+        <select id="sort">
+          <option value="name">Nama A–Z</option>
+          <option value="rating">Rating tertinggi</option>
+          <option value="reviews">Ulasan terbanyak</option>
+          <option value="images">Foto terbanyak</option>
+          <option value="city">Kota A–Z</option>
+        </select>
+      </div>
+      <button class="btn ghost full" id="resetBtn" type="button">Reset filter</button>
+    </aside>
+
+    <section class="content">
+      <div class="stats" id="stats" aria-live="polite"></div>
+
+      <div class="toolbar">
+        <p id="resultInfo" class="result-info"></p>
+        <div class="seg" role="group" aria-label="Tampilan">
+          <button type="button" data-view="grid" class="active">Kartu</button>
+          <button type="button" data-view="table">Tabel</button>
+        </div>
+      </div>
+
+      <div id="state"></div>
+      <div id="results"></div>
+      <div class="pager" id="pager"></div>
+    </section>
+  </main>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Detail">
+    <button class="close" id="closeBtn" type="button" aria-label="Tutup detail">Tutup</button>
+    <div id="drawerBody"></div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
